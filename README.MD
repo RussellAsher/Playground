@@ -1,4 +1,4 @@
-Coding Playground
-=================
+Code Playground
+===============
 
-This is a coding sandbox area to help maintain personal programming skills.
+This project serves as a coding sandbox.  It's sole purpose is to help me keep my coding and git skills solid.

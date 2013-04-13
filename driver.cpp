@@ -16,9 +16,9 @@ void Driver::Run()
 	list.PushBack(2.2);
 	list.PushBack(44);
 	list.PushBack(3.6);
+	list.PushBack(7.9);
 	list.PrintList();
-	list.PopFront();
-	list.PopFront();
+	list.ReverseList();
 	list.PrintList();
   	cout<<"Driver Just Ran"<<endl;
 }

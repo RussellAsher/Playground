@@ -15,6 +15,7 @@ LinkedList<ElementType>::LinkedList()
 template<typename ElementType>
 LinkedList<ElementType>::~LinkedList()
 {
+	//Keep removing front element and delete it until all Nodes are gone
 	while(root != NULL)
 	{
 		PopFront();
@@ -23,7 +24,7 @@ LinkedList<ElementType>::~LinkedList()
 
 //FUNCTION SUMMARY: Adds a element to the back of the linked list.
 //RUNTIME: O(n)
-//NOTE: [Could be O(1) if I add another pointer to the back]
+//NOTE: [Could be O(1) if I add another pointer to the back and made the nodes double linked]
 template<typename ElementType>
 void LinkedList<ElementType>::PushBack(ElementType element)
 {
@@ -44,7 +45,7 @@ void LinkedList<ElementType>::PushBack(ElementType element)
 }
 
 //FUNCTION SUMMARY: Removes first element from the list.  Does nothing if List is empty
-//RUNTIME: O(n)
+//RUNTIME: O(1)
 template<typename ElementType>
 void LinkedList<ElementType>::PopFront()
 {
@@ -58,7 +59,6 @@ void LinkedList<ElementType>::PopFront()
 
 }
 
-
 //FUNCTION SUMMARY: Prints the entire LinkedList.
 //RUNTIME: O(n)
 template<typename ElementType>
@@ -70,15 +70,41 @@ void LinkedList<ElementType>::PrintList()
 	{
 		if(count <= 1)
 		{
-		cout << current->data<<endl;
+			cout << current->data<<endl;
 		}else
 		{
-		cout << current->data<< ", ";
+			cout << current->data<< ", ";
 		}
 		current = current->next;
 		count--;
 	}
 
+}
+
+//FUNCTION SUMMARY: Returns true if the list is empty
+//RUNTIME: O(1)
+template<typename ElementType>
+bool LinkedList<ElementType>::IsEmpty()
+{
+	return (size <= 0);
+}
+
+//FUNCTION SUMMARY: Reverses the linked list
+//RUNTIME: O(n)
+template<typename ElementType>
+void LinkedList<ElementType>::ReverseList()
+{
+	Node<ElementType>* newRoot = NULL;
+	Node<ElementType>* tempNode = NULL;
+	
+	while(root != NULL)
+	{
+		tempNode = root;
+		root = root->next;
+		tempNode->next = newRoot;
+		newRoot = tempNode;
+	}
+	root = newRoot;
 }
 
 //Current Supported Elements

@@ -12,6 +12,7 @@ public:
 	Node(ElementType input)
 	{
 		data = input;
+		next = NULL;
 	}
 
 };
@@ -28,6 +29,8 @@ public:
 	void PushBack(ElementType Element);
 	void PopFront();
 	void PrintList();
+	bool IsEmpty();
+	void ReverseList();
 
 
 };
